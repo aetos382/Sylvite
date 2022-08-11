@@ -1,7 +1,14 @@
 <Project>
+
   <ItemGroup>
     <PackageReference Update="Microsoft.VisualStudio.DebuggerVisualizers" PrivateAssets="all" />
     <PackageReference Update="Fody" PrivateAssets="all" />
     <PackageReference Update="Costura.Fody" PrivateAssets="all" />
   </ItemGroup>
+
+  <!-- workaround for https://github.com/dotnet/reproducible-builds/issues/19 -->
+  <ItemGroup Condition="'$(TargetFrameworkIdentifier)' == '.NETFramework'">
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" PrivateAssets="all" />
+  </ItemGroup>
+
 </Project>
