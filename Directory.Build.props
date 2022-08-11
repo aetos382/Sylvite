@@ -1,0 +1,21 @@
+<Project>
+  <PropertyGroup>
+    <DefaultItemExcludes>
+      $(DefaultItemExcludes);
+      packages.lock.json;
+      *.DotSettings;
+      *.log;
+      *.binlog
+    </DefaultItemExcludes>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- workaround for https://github.com/dotnet/reproducible-builds/issues/19 -->
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" PrivateAssets="all"/>
+  </ItemGroup>
+  <Sdk Name="DotNet.ReproducibleBuilds.Isolated" Version="1.1.1" />
+  <ItemGroup>
+    <AssemblyAttribute Include="System.CLSCompliantAttribute" Condition="'$(CLSCompliant)' != ''">
+      <_Parameter1>$(CLSCompliant)</_Parameter1>
+    </AssemblyAttribute>
+  </ItemGroup>
+</Project>

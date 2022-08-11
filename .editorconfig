@@ -9,5 +9,7 @@ trim_trailing_whitespace = true
 [*.cs]
 indent_size = 4
 
-[*.{xml,*proj,targets,props,config}]
+csharp_style_namespace_declarations = file_scoped:suggestion
+
+[*.{xml,*proj,xaml,targets,props,config,DotSettings}]
 indent_size = 2

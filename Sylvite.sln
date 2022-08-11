@@ -3,16 +3,20 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32804.467
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sylvite", "Sylvite\Sylvite.csproj", "{43DE4DE3-B812-43E9-A36D-825F301C0572}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sylvite.Debuggee", "Sylvite.Debuggee\Sylvite.Debuggee.csproj", "{CB49623E-28F3-4176-BB62-EEA820C3936B}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sylvite.Contract", "Sylvite.Contract\Sylvite.Contract.csproj", "{684E82BE-D8F0-4BAF-9FA4-8D10BF40946D}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ソリューション項目", "ソリューション項目", "{27804D3A-7562-427E-9458-C5DE43CC816B}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
 	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sylvite.Visualizer", "Sylvite.Visualizer\Sylvite.Visualizer.csproj", "{43DE4DE3-B812-43E9-A36D-825F301C0572}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sylvite.Debuggee", "Sylvite.Debuggee\Sylvite.Debuggee.csproj", "{CB49623E-28F3-4176-BB62-EEA820C3936B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sylvite.Transport", "Sylvite.Transport\Sylvite.Transport.csproj", "{684E82BE-D8F0-4BAF-9FA4-8D10BF40946D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sylvite.TestConsole", "Sylvite.TestConsole\Sylvite.TestConsole.csproj", "{F90A1BB9-C461-4BB5-A1FE-61DC8A4DFEAD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sylvite.RoslynHelper", "Sylvite.RoslynHelper\Sylvite.RoslynHelper.csproj", "{318FB65D-0394-465F-8472-D839943C08AD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -32,6 +36,14 @@ Global
 		{684E82BE-D8F0-4BAF-9FA4-8D10BF40946D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{684E82BE-D8F0-4BAF-9FA4-8D10BF40946D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{684E82BE-D8F0-4BAF-9FA4-8D10BF40946D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F90A1BB9-C461-4BB5-A1FE-61DC8A4DFEAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F90A1BB9-C461-4BB5-A1FE-61DC8A4DFEAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F90A1BB9-C461-4BB5-A1FE-61DC8A4DFEAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F90A1BB9-C461-4BB5-A1FE-61DC8A4DFEAD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{318FB65D-0394-465F-8472-D839943C08AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{318FB65D-0394-465F-8472-D839943C08AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{318FB65D-0394-465F-8472-D839943C08AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{318FB65D-0394-465F-8472-D839943C08AD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

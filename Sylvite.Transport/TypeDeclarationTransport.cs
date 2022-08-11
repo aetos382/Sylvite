@@ -1,0 +1,20 @@
+using System;
+using System.Collections.Generic;
+
+namespace Sylvite.Transport;
+
+[Serializable]
+public abstract class TypeDeclarationTransport :
+    SyntaxTransport
+{
+    public string Name { get; }
+
+    protected TypeDeclarationTransport(
+        string name,
+        IReadOnlyList<SyntaxTransport>? children)
+        : base(
+            children)
+    {
+        this.Name = name;
+    }
+}

@@ -1,0 +1,7 @@
+<Project>
+  <ItemGroup>
+    <PackageReference Update="Microsoft.VisualStudio.DebuggerVisualizers" PrivateAssets="all" />
+    <PackageReference Update="Fody" PrivateAssets="all" />
+    <PackageReference Update="Costura.Fody" PrivateAssets="all" />
+  </ItemGroup>
+</Project>
