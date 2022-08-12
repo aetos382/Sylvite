@@ -1,5 +1,6 @@
 using System;
-using System.Collections.Generic;
+
+using Sylvie.Diagnostics;
 
 namespace Sylvite.Transport;
 
@@ -17,6 +18,9 @@ public class ClassDeclarationTransport :
     public override T Accept<T>(
         ITransportVisitor<T> visitor)
     {
-        return visitor.VisitClassDeclaration(this);
+        Guard.NotNull(visitor);
+
+        return visitor.VisitClassDeclaration(
+            this);
     }
 }

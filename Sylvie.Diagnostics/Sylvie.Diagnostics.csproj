@@ -3,11 +3,6 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <CLSCompliant>true</CLSCompliant>
-    <NoWarn>$(NoWarn);CA1040;CA5362</NoWarn>
   </PropertyGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\Sylvie.Diagnostics\Sylvie.Diagnostics.csproj" />
-  </ItemGroup>
 
 </Project>

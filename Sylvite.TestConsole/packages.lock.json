@@ -164,6 +164,9 @@
           "System.Runtime.CompilerServices.Unsafe": "4.5.3"
         }
       },
+      "sylvie.diagnostics": {
+        "type": "Project"
+      },
       "sylvite.debuggee": {
         "type": "Project",
         "dependencies": {
@@ -177,7 +180,10 @@
         }
       },
       "sylvite.transport": {
-        "type": "Project"
+        "type": "Project",
+        "dependencies": {
+          "Sylvie.Diagnostics": "[1.0.0, )"
+        }
       },
       "sylvite.visualizer": {
         "type": "Project",

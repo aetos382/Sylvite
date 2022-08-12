@@ -22,6 +22,9 @@ dotnet_diagnostic.IDE0130.severity = suggestion
 dotnet_diagnostic.IDE0161.severity = warning
 dotnet_diagnostic.IDE1006.severity = warning
 
+dotnet_diagnostic.CA1062.severity = warning
+dotnet_code_quality.CA1062.null_check_validation_methods = M:Sylvie.Diagnostics.Guard.NotNull``1(``0,System.String)
+
 # Code Style Settings
 dotnet_style_qualification_for_field = false:silent
 dotnet_style_qualification_for_property = false:silent
