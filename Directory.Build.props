@@ -7,6 +7,13 @@
       *.log;
       *.binlog
     </DefaultItemExcludes>
+
+    <LangVersion>10</LangVersion>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <EnableNETAnalyzers>True</EnableNETAnalyzers>
+    <AnalysisLevel>latest-all</AnalysisLevel>
+    <EnforceCodeStyleOnBuild>true</EnforceCodeStyleOnBuild>
   </PropertyGroup>
 
   <Sdk Name="DotNet.ReproducibleBuilds.Isolated" Version="1.1.1" />
