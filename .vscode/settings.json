@@ -4,7 +4,8 @@
         "*.props": "xml",
         "*.targets": "xml",
         "*.config": "xml",
-        "*.DotSettings": "xml"
+        "*.DotSettings": "xml",
+        ".globalconfig": "editorconfig"
     },
     "json.schemas": [
         {
