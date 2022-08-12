@@ -1,13 +1,8 @@
-﻿
+
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32804.467
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ソリューション項目", "ソリューション項目", "{27804D3A-7562-427E-9458-C5DE43CC816B}"
-	ProjectSection(SolutionItems) = preProject
-		.editorconfig = .editorconfig
-	EndProjectSection
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sylvite.Visualizer", "Sylvite.Visualizer\Sylvite.Visualizer.csproj", "{43DE4DE3-B812-43E9-A36D-825F301C0572}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sylvite.Debuggee", "Sylvite.Debuggee\Sylvite.Debuggee.csproj", "{CB49623E-28F3-4176-BB62-EEA820C3936B}"
