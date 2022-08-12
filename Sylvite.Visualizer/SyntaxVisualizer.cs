@@ -21,14 +21,12 @@ public class SyntaxVisualizer :
             throw new NotSupportedException();
         }
 
-        var window = new MainWindow
-        {
-            DataContext = new ViewModel
-            {
+        var window = new MainWindow {
+            DataContext = new ViewModel {
                 ObjectProvider = provider
             }
         };
 
-        window.ShowDialog();
+        _ = window.ShowDialog();
     }
 }

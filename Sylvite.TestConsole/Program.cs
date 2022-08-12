@@ -8,10 +8,10 @@ using Sylvite.Visualizer;
 
 namespace Sylvite.TestConsole;
 
-static class Program
+internal static class Program
 {
     [STAThread]
-    static void Main()
+    private static void Main()
     {
         var obj = CSharpSyntaxTree.ParseText("class Foo{}");
 
