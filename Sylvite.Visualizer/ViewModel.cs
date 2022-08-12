@@ -14,7 +14,7 @@ public partial class ViewModel
     internal IAsyncVisualizerObjectProvider? ObjectProvider { get; init; }
 
     [ObservableProperty]
-    private string code;
+    private string? _code;
 
     [RelayCommand]
     private void Loaded()
