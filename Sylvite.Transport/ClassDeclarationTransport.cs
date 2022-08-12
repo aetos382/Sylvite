@@ -8,11 +8,9 @@ public class ClassDeclarationTransport :
     TypeDeclarationTransport
 {
     public ClassDeclarationTransport(
-        string name,
-        IReadOnlyList<SyntaxTransport>? children)
+        string name)
         : base(
-            name,
-            children)
+            name)
     {
     }
 

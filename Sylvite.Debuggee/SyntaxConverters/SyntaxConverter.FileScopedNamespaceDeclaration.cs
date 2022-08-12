@@ -10,7 +10,6 @@ internal partial class SyntaxConverter
         FileScopedNamespaceDeclarationSyntax node)
     {
         return new FileScopedNamespaceDeclarationTransport(
-            node.Name.ToString(),
-            null);
+            node.Name.ToString());
     }
 }

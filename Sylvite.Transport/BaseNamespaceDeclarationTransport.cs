@@ -10,10 +10,7 @@ public abstract class BaseNamespaceDeclarationTransport :
     public string Name { get; }
 
     protected BaseNamespaceDeclarationTransport(
-        string name,
-        IReadOnlyList<SyntaxTransport>? children)
-        : base(
-            children)
+        string name)
     {
         Name = name;
     }

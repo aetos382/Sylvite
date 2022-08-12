@@ -8,11 +8,9 @@ public class NamespaceDeclarationTransport :
     BaseNamespaceDeclarationTransport
 {
     public NamespaceDeclarationTransport(
-        string name,
-        IReadOnlyList<SyntaxTransport>? children)
+        string name)
         : base(
-            name,
-            children)
+            name)
     {
     }
 

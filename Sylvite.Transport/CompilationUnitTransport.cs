@@ -7,13 +7,6 @@ namespace Sylvite.Transport;
 public class CompilationUnitTransport :
     SyntaxTransport
 {
-    public CompilationUnitTransport(
-        IReadOnlyList<SyntaxTransport>? children)
-        : base(
-            children)
-    {
-    }
-
     public override T Accept<T>(
         ITransportVisitor<T> visitor)
     {

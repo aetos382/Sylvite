@@ -10,10 +10,7 @@ public abstract class TypeDeclarationTransport :
     public string Name { get; }
 
     protected TypeDeclarationTransport(
-        string name,
-        IReadOnlyList<SyntaxTransport>? children)
-        : base(
-            children)
+        string name)
     {
         this.Name = name;
     }

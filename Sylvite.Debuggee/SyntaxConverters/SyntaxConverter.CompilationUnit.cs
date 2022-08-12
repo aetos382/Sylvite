@@ -11,6 +11,10 @@ internal partial class SyntaxConverter
     public override SyntaxTransport VisitCompilationUnit(
         CompilationUnitSyntax node)
     {
+        var transport = new CompilationUnitTransport();
+
+        this._onTraverse?.Invoke(transport);
+
         var childTransports = new List<SyntaxTransport>();
 
         foreach (var childNode in node.ChildNodes())
@@ -23,6 +27,6 @@ internal partial class SyntaxConverter
             }
         }
 
-        return new CompilationUnitTransport(childTransports);
+        return transport;
     }
 }

@@ -8,11 +8,9 @@ public class FileScopedNamespaceDeclarationTransport :
     BaseNamespaceDeclarationTransport
 {
     public FileScopedNamespaceDeclarationTransport(
-        string name,
-        IReadOnlyList<SyntaxTransport>? children)
+        string name)
         : base(
-            name,
-            children)
+            name)
     {
     }
 

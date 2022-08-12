@@ -10,7 +10,6 @@ internal partial class SyntaxConverter
         NamespaceDeclarationSyntax node)
     {
         return new NamespaceDeclarationTransport(
-            node.Name.ToString(),
-            null);
+            node.Name.ToString());
     }
 }

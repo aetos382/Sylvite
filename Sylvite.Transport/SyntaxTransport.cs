@@ -6,13 +6,27 @@ namespace Sylvite.Transport;
 [Serializable]
 public abstract class SyntaxTransport
 {
-    public IReadOnlyList<SyntaxTransport> Children { get; }
-
-    protected SyntaxTransport(
-        IReadOnlyList<SyntaxTransport>? children)
+    protected SyntaxTransport()
     {
-        this.Children = children ?? Array.Empty<SyntaxTransport>();
     }
+
+    private readonly List<SyntaxTransport> _children = new();
+
+    protected void AddChild(
+        SyntaxTransport child)
+    {
+        this._children.Add(child);
+    }
+
+    public IReadOnlyList<SyntaxTransport> Children
+    {
+        get
+        {
+            return this._children.AsReadOnly();
+        }
+    }
+
+    public Guid Id { get; } = Guid.NewGuid();
 
     public abstract T Accept<T>(
         ITransportVisitor<T> visitor);

@@ -12,7 +12,6 @@ internal partial class SyntaxConverter
         var name = node.Identifier.ValueText;
 
         return new ClassDeclarationTransport(
-            name,
-            null);
+            name);
     }
 }
