@@ -8,8 +8,8 @@ trim_trailing_whitespace = true
 
 [*.cs]
 indent_size = 4
-
-csharp_style_namespace_declarations = file_scoped:suggestion
+tab_width = 4
 
 [*.{xml,*proj,xaml,targets,props,config,DotSettings}]
 indent_size = 2
+tab_width = 2
