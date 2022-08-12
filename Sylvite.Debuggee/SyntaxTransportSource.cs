@@ -9,14 +9,6 @@ namespace Sylvite.Debuggee;
 public class SyntaxTransportSource :
     VisualizerObjectSource
 {
-    public override void TransferData(
-        object target,
-        Stream incomingData,
-        Stream outgoingData)
-    {
-        base.TransferData(target, incomingData, outgoingData);
-    }
-
     public override void GetData(
         object target,
         Stream outgoingData)
