@@ -11,7 +11,11 @@ internal partial class SyntaxConverter
     {
         var name = node.Identifier.ValueText;
 
-        return new ClassDeclarationTransport(
+        var transport = new ClassDeclarationTransport(
             name);
+
+        this._onTraverse?.Invoke(transport);
+
+        return transport;
     }
 }
