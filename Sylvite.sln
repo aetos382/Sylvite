@@ -1,4 +1,4 @@
-
+﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32804.467
@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sylvite.Transport", "Sylvit
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sylvite.TestConsole", "Sylvite.TestConsole\Sylvite.TestConsole.csproj", "{F90A1BB9-C461-4BB5-A1FE-61DC8A4DFEAD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sylvite.RoslynHelper", "Sylvite.RoslynHelper\Sylvite.RoslynHelper.csproj", "{318FB65D-0394-465F-8472-D839943C08AD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sylvite.RoslynHelper", "Sylvite.RoslynHelper\Sylvite.RoslynHelper.csproj", "{318FB65D-0394-465F-8472-D839943C08AD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
