@@ -1,3 +1,5 @@
+using System.Threading;
+
 using Microsoft.CodeAnalysis;
 using Microsoft.VisualStudio.DebuggerVisualizers;
 
@@ -17,18 +19,17 @@ public partial class ViewModel
     private string? _code;
 
     [RelayCommand]
-    private void Loaded()
+    private void Loaded(
+        CancellationToken cancellationToken)
     {
         var objectProvider = this.ObjectProvider;
-
         if (objectProvider is null)
         {
             return;
         }
 
-        var transport = objectProvider
-            .GetDeserializableObject()
-            .ToObject<SyntaxTransport>();
+        var deserializableObject = objectProvider.GetDeserializableObject();
+        var transport = deserializableObject.ToObject<SyntaxTransport>();
 
         var rebuilder = new SyntaxRebuilder();
 

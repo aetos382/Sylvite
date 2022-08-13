@@ -9,7 +9,12 @@ public abstract class TypeDeclarationTransport :
     public string Name { get; }
 
     protected TypeDeclarationTransport(
-        string name)
+        string name,
+        TextSpan span,
+        SyntaxTransport? parent)
+        : base(
+            span,
+            parent)
     {
         this.Name = name;
     }

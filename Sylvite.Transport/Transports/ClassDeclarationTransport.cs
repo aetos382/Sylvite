@@ -1,6 +1,6 @@
 using System;
 
-using Sylvie.Diagnostics;
+using Sylvite.Diagnostics;
 
 namespace Sylvite.Transport;
 
@@ -9,9 +9,13 @@ public class ClassDeclarationTransport :
     TypeDeclarationTransport
 {
     public ClassDeclarationTransport(
-        string name)
+        string name,
+        TextSpan span,
+        SyntaxTransport? parent)
         : base(
-            name)
+            name,
+            span,
+            parent)
     {
     }
 

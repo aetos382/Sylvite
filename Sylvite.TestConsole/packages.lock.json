@@ -164,14 +164,18 @@
           "System.Runtime.CompilerServices.Unsafe": "4.5.3"
         }
       },
-      "sylvie.diagnostics": {
-        "type": "Project"
-      },
       "sylvite.debuggee": {
         "type": "Project",
         "dependencies": {
+          "Sylvite.SyntaxTranslator": "[1.0.0, )",
           "Sylvite.Transport": "[1.0.0, )"
         }
+      },
+      "sylvite.diagnostics": {
+        "type": "Project"
+      },
+      "sylvite.loader": {
+        "type": "Project"
       },
       "sylvite.roslynhelper": {
         "type": "Project",
@@ -179,10 +183,16 @@
           "Microsoft.CodeAnalysis.CSharp": "[4.2.0, )"
         }
       },
+      "sylvite.syntaxtranslator": {
+        "type": "Project",
+        "dependencies": {
+          "Sylvite.Transport": "[1.0.0, )"
+        }
+      },
       "sylvite.transport": {
         "type": "Project",
         "dependencies": {
-          "Sylvie.Diagnostics": "[1.0.0, )"
+          "Sylvite.Diagnostics": "[1.0.0, )"
         }
       },
       "sylvite.visualizer": {
@@ -193,7 +203,7 @@
           "Microsoft.CodeAnalysis.CSharp": "[4.2.0, )",
           "Microsoft.Web.WebView2": "[1.0.1293.44, )",
           "Microsoft.Xaml.Behaviors.Wpf": "[1.1.39, )",
-          "Sylvite.Debuggee": "[1.0.0, )",
+          "Sylvite.Loader": "[1.0.0, )",
           "Sylvite.RoslynHelper": "[1.0.0, )",
           "Sylvite.Transport": "[1.0.0, )"
         }

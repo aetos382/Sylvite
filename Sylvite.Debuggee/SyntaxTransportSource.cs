@@ -4,11 +4,26 @@ using System.IO;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.VisualStudio.DebuggerVisualizers;
 
+using Sylvite.SyntaxTranslator;
+
 namespace Sylvite.Debuggee;
 
 public class SyntaxTransportSource :
     VisualizerObjectSource
 {
+    public override void TransferData(
+        object target,
+        Stream incomingData,
+        Stream outgoingData)
+    {
+        base.TransferData(target, incomingData, outgoingData);
+    }
+
+    public override object CreateReplacementObject(object target, Stream incomingData)
+    {
+        return base.CreateReplacementObject(target, incomingData);
+    }
+
     public override void GetData(
         object target,
         Stream outgoingData)
@@ -36,5 +51,7 @@ public class SyntaxTransportSource :
         var transport = converter.Visit(node);
 
         base.GetData(transport, outgoingData);
+
+        converter.TraverseCompleted();
     }
 }

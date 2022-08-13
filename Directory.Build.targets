@@ -2,13 +2,35 @@
 
   <ItemGroup>
     <PackageReference Update="Microsoft.VisualStudio.DebuggerVisualizers" PrivateAssets="all" />
-    <PackageReference Update="Fody" PrivateAssets="all" />
-    <PackageReference Update="Costura.Fody" PrivateAssets="all" />
+    <PackageReference Update="xunit.runner.visualstudio" PrivateAssets="all" />
+    <PackageReference Update="coverlet.collector" PrivateAssets="all" />
   </ItemGroup>
 
   <!-- workaround for https://github.com/dotnet/reproducible-builds/issues/19 -->
   <ItemGroup Condition="'$(TargetFrameworkIdentifier)' == '.NETFramework'">
     <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" PrivateAssets="all" />
   </ItemGroup>
+
+
+  <ItemGroup Condition="'$(RoslynVersion)' != ''">
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" PrivateAssets="all" VersionOverride="$(RoslynVersion)"/>
+  </ItemGroup>
+
+  <Target Name="DefineRoslynVersionConstants" BeforeTargets="AddImplicitDefineConstants" Condition="'$(RoslynVersion)' != ''">
+    <PropertyGroup>
+      <_FormattedRoslynVersion>ROSLYN_$(RoslynVersion.Replace('.', '_'))</_FormattedRoslynVersion>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <_FormattedCompatibleRoslynVersion
+        Include="@(SupportedRoslynVersion->'ROSLYN_%(Identity)_OR_GREATER'->Replace('.', '_'))"
+        Condition="$([MSBuild]::VersionLessThanOrEquals(%(Identity), $(RoslynVersion)))"/>
+    </ItemGroup>
+
+    <PropertyGroup>
+      <_RoslynVersionConstants>$(_FormattedRoslynVersion);@(_FormattedCompatibleRoslynVersion)</_RoslynVersionConstants>
+      <DefineConstants>$(DefineConstants);$(_RoslynVersionConstants)</DefineConstants>
+    </PropertyGroup>
+  </Target>
 
 </Project>

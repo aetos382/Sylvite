@@ -8,15 +8,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.VisualStudio.DebuggerVisualizers" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\Sylvite.SyntaxTranslator\Sylvite.SyntaxTranslator.csproj" />
     <ProjectReference Include="..\Sylvite.Transport\Sylvite.Transport.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <InternalsVisibleTo Include="Sylvite.Debuggee.Tests" />
+    <InternalsVisibleTo Include="Sylvite.SyntaxTranslator.Tests" />
   </ItemGroup>
+
 </Project>

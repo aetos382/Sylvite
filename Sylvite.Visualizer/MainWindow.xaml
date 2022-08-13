@@ -21,8 +21,9 @@
     <TabControl>
         <TabItem Header="Source Code">
             <TabPanel>
-                <TextBlock
-                    Text="{Binding Code}"/>
+              <ScrollViewer>
+                <TextBlock Text="{Binding Code}"/>
+              </ScrollViewer>
             </TabPanel>
         </TabItem>
         <TabItem Header="Syntax Tree">

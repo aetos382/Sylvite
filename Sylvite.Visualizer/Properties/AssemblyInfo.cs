@@ -2,24 +2,6 @@ using System.Diagnostics;
 
 using Sylvite.Visualizer;
 
-#if DEBUG
-
-using Microsoft.CodeAnalysis.CSharp;
-
-using Sylvite.Debuggee;
-
-[assembly: DebuggerVisualizer(
-    visualizer: typeof(SyntaxVisualizer),
-    visualizerObjectSource: typeof(SyntaxTransportSource),
-    Target = typeof(CSharpSyntaxTree))]
-
-[assembly: DebuggerVisualizer(
-    visualizer: typeof(SyntaxVisualizer),
-    visualizerObjectSource: typeof(SyntaxTransportSource),
-    Target = typeof(CSharpSyntaxNode))]
-
-#endif
-
 [assembly: DebuggerVisualizer(
     visualizer: typeof(SyntaxVisualizer),
     visualizerObjectSourceTypeName: "Sylvite.Debuggee.SyntaxTransportSource, Sylvite.Debuggee",

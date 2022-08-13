@@ -16,12 +16,28 @@
     <EnforceCodeStyleOnBuild>true</EnforceCodeStyleOnBuild>
   </PropertyGroup>
 
+  <ItemGroup>
+    <SupportedRoslynVersion Include="3.6.0"/>
+    <SupportedRoslynVersion Include="3.7.0"/>
+    <SupportedRoslynVersion Include="3.8.0"/>
+    <SupportedRoslynVersion Include="3.9.0"/>
+    <SupportedRoslynVersion Include="3.10.0"/>
+    <SupportedRoslynVersion Include="3.11.0"/>
+    <SupportedRoslynVersion Include="4.0.1"/>
+    <SupportedRoslynVersion Include="4.1.0"/>
+    <SupportedRoslynVersion Include="4.2.0"/>
+  </ItemGroup>
+
   <Sdk Name="DotNet.ReproducibleBuilds.Isolated" Version="1.1.1" />
 
   <ItemGroup>
     <AssemblyAttribute Include="System.CLSCompliantAttribute" Condition="'$(CLSCompliant)' != ''">
       <_Parameter1>$(CLSCompliant)</_Parameter1>
     </AssemblyAttribute>
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(ImportPolyfills)' == 'true'">
+    <Compile Include="$(MSBuildThisFileDirectory)Polyfills/**/*.cs" Visible="false"/>
   </ItemGroup>
 
 </Project>

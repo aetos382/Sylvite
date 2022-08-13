@@ -2,16 +2,6 @@
   "version": 2,
   "dependencies": {
     ".NETStandard,Version=v2.0": {
-      "Costura.Fody": {
-        "type": "Direct",
-        "requested": "[5.7.0, )",
-        "resolved": "5.7.0",
-        "contentHash": "MmL28WOOnJEBWORXj6bfSxfWaZW8gWSXEJTdrjB9AQi4COX6RXr2xdGL9HsxpWwn6f5Io0NmNuwFJe94w1YmQA==",
-        "dependencies": {
-          "Fody": "6.5.5",
-          "NETStandard.Library": "1.6.1"
-        }
-      },
       "DotNet.ReproducibleBuilds": {
         "type": "Direct",
         "requested": "[1.1.1, )",
@@ -23,12 +13,6 @@
           "Microsoft.SourceLink.GitHub": "1.1.1",
           "Microsoft.SourceLink.GitLab": "1.1.1"
         }
-      },
-      "Fody": {
-        "type": "Direct",
-        "requested": "[6.6.3, )",
-        "resolved": "6.6.3",
-        "contentHash": "X1WKKgSNYVtLzdO8dK3YWmfmljA4L0soePcWNouq9X6WbVF4bmivuJdlhTZx/2L3ml6tMvhFe8skIbVQ24PAYA=="
       },
       "Microsoft.CodeAnalysis.CSharp": {
         "type": "Direct",
@@ -182,13 +166,19 @@
           "System.Runtime.CompilerServices.Unsafe": "4.5.3"
         }
       },
-      "sylvie.diagnostics": {
+      "sylvite.diagnostics": {
         "type": "Project"
+      },
+      "sylvite.syntaxtranslator": {
+        "type": "Project",
+        "dependencies": {
+          "Sylvite.Transport": "[1.0.0, )"
+        }
       },
       "sylvite.transport": {
         "type": "Project",
         "dependencies": {
-          "Sylvie.Diagnostics": "[1.0.0, )"
+          "Sylvite.Diagnostics": "[1.0.0, )"
         }
       }
     }

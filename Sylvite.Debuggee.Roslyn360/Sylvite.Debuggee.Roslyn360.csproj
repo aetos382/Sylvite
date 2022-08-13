@@ -1,10 +1,9 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <CLSCompliant>false</CLSCompliant>
-    <ImportPolyfills>true</ImportPolyfills>
-    <RoslynVersion>4.2.0</RoslynVersion>
+    <RoslynVersion>3.6.0</RoslynVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -12,11 +11,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Sylvite.SyntaxTranslator\Sylvite.SyntaxTranslator.csproj" />
     <ProjectReference Include="..\Sylvite.Transport\Sylvite.Transport.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <InternalsVisibleTo Include="Sylvite.Debuggee.Tests" />
+    <Compile Include="..\Sylvite.Debugee.Shared\**\*.cs"/>
   </ItemGroup>
+
 </Project>

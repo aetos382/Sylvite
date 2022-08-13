@@ -1,6 +1,6 @@
 using System;
 
-using Sylvie.Diagnostics;
+using Sylvite.Diagnostics;
 
 namespace Sylvite.Transport;
 
@@ -14,5 +14,13 @@ public class CompilationUnitTransport :
         Guard.NotNull(visitor);
 
         return visitor.VisitCompilationUnit(this);
+    }
+
+    public CompilationUnitTransport(
+        TextSpan span)
+        : base(
+            span,
+            null)
+    {
     }
 }

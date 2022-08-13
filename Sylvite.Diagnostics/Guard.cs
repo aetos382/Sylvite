@@ -2,7 +2,7 @@ using System;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
 
-namespace Sylvie.Diagnostics;
+namespace Sylvite.Diagnostics;
 
 public static class Guard
 {

@@ -9,7 +9,12 @@ public abstract class BaseNamespaceDeclarationTransport :
     public string Name { get; }
 
     protected BaseNamespaceDeclarationTransport(
-        string name)
+        string name,
+        TextSpan span,
+        SyntaxTransport? parent)
+        : base(
+            span,
+            parent)
     {
         Name = name;
     }
