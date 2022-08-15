@@ -1,17 +1,5 @@
 <Project>
 
-  <ItemGroup>
-    <PackageReference Update="Microsoft.VisualStudio.DebuggerVisualizers" PrivateAssets="all" />
-    <PackageReference Update="xunit.runner.visualstudio" PrivateAssets="all" />
-    <PackageReference Update="coverlet.collector" PrivateAssets="all" />
-  </ItemGroup>
-
-  <!-- workaround for https://github.com/dotnet/reproducible-builds/issues/19 -->
-  <ItemGroup Condition="'$(TargetFrameworkIdentifier)' == '.NETFramework'">
-    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" PrivateAssets="all" />
-  </ItemGroup>
-
-
   <ItemGroup Condition="'$(RoslynVersion)' != ''">
     <PackageReference Include="Microsoft.CodeAnalysis.CSharp" PrivateAssets="all" VersionOverride="$(RoslynVersion)"/>
   </ItemGroup>

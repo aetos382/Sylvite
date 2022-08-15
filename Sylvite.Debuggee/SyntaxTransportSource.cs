@@ -1,57 +1,48 @@
 using System;
 using System.IO;
+using System.Linq;
 
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.VisualStudio.DebuggerVisualizers;
 
+using Sylvite.Diagnostics;
 using Sylvite.SyntaxTranslator;
+using Sylvite.Transport;
 
 namespace Sylvite.Debuggee;
 
 public class SyntaxTransportSource :
-    VisualizerObjectSource
+    VisualizerObjectSource,
+    ITransportRequestHandler
 {
     public override void TransferData(
         object target,
         Stream incomingData,
         Stream outgoingData)
     {
-        base.TransferData(target, incomingData, outgoingData);
+        var command = GetDeserializableObject(incomingData).ToObject<ITransportRequest>();
+        var context = new RequestContext(target, incomingData, outgoingData);
+
+        command.Handle(this, context);
     }
 
-    public override object CreateReplacementObject(object target, Stream incomingData)
+    public void OnGetObject(
+        GetObjectRequest command,
+        RequestContext context)
     {
-        return base.CreateReplacementObject(target, incomingData);
-    }
+        Guard.NotNull(command);
+        Guard.NotNull(context);
 
-    public override void GetData(
-        object target,
-        Stream outgoingData)
-    {
-        if (target is CSharpSyntaxTree tree)
-        {
-            var rootNode = tree.GetCompilationUnitRoot();
-            this.GetSyntaxNodeData(rootNode, outgoingData);
-            return;
-        }
-        else if (target is CSharpSyntaxNode node)
-        {
-            this.GetSyntaxNodeData(node, outgoingData);
-            return;
-        }
+        var node = context.VisualizeTarget switch {
+            CSharpSyntaxNode n => n,
+            CSharpSyntaxTree t => t.GetCompilationUnitRoot(),
+            _ => throw new NotSupportedException()
+        };
 
-        throw new NotSupportedException();
-    }
+        var nodeEnumerator = new SyntaxConverter(node);
+        var transports = nodeEnumerator.Take(command.Count).ToArray();
+        var response = new GetObjectResponse(transports, transports.Length < command.Count);
 
-    private void GetSyntaxNodeData(
-        CSharpSyntaxNode node,
-        Stream outgoingData)
-    {
-        var converter = new SyntaxConverter();
-        var transport = converter.Visit(node);
-
-        base.GetData(transport, outgoingData);
-
-        converter.TraverseCompleted();
+        context.SendObject(response);
     }
 }

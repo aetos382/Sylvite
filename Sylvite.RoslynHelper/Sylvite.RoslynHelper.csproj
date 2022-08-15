@@ -8,10 +8,15 @@
     <EnableNETAnalyzers>True</EnableNETAnalyzers>
     <AnalysisLevel>6.0-all</AnalysisLevel>
     <CLSCompliant>false</CLSCompliant>
+    <ImportPolyfills>true</ImportPolyfills>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.CodeAnalysis.CSharp" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Sylvite.Diagnostics\Sylvite.Diagnostics.csproj" />
   </ItemGroup>
 
 </Project>

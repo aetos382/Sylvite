@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Sylvite.RoslynHelper\Sylvite.RoslynHelper.csproj" />
     <ProjectReference Include="..\Sylvite.Transport\Sylvite.Transport.csproj" />
   </ItemGroup>
 

@@ -4,6 +4,7 @@ is_global = true
 
 # Analyzer Diagnostics Settings
 dotnet_analyzer_diagnostic.severity = error
+dotnet_diagnostic.IDE0001.severity = suggestion
 dotnet_diagnostic.IDE0003.severity = none
 dotnet_diagnostic.IDE0005.severity = warning
 dotnet_diagnostic.IDE0007.severity = suggestion
@@ -12,7 +13,10 @@ dotnet_diagnostic.IDE0009.severity = warning
 dotnet_diagnostic.IDE0025.severity = none
 dotnet_diagnostic.IDE0037.severity = suggestion
 dotnet_diagnostic.IDE0040.severity = warning
+dotnet_diagnostic.IDE0042.severity = suggestion
 dotnet_diagnostic.IDE0044.severity = warning
+dotnet_diagnostic.IDE0045.severity = suggestion
+dotnet_diagnostic.IDE0046.severity = suggestion
 dotnet_diagnostic.IDE0051.severity = warning
 dotnet_diagnostic.IDE0052.severity = warning
 dotnet_diagnostic.IDE0053.severity = none
@@ -102,7 +106,7 @@ dotnet_sort_system_directives_first = true:suggestion
 dotnet_separate_import_directive_groups = true:suggestion
 dotnet_style_namespace_match_folder = false
 
-# csharp_new_line_before_open_brace = all:suggestion
+csharp_new_line_before_open_brace = types, methods, properties, accessors, control_blocks
 csharp_new_line_before_else = true:warning
 csharp_new_line_before_catch = true:warning
 csharp_new_line_before_finally = true:warning

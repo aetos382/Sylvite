@@ -11,10 +11,12 @@ public abstract class TypeDeclarationTransport :
     protected TypeDeclarationTransport(
         string name,
         TextSpan span,
-        SyntaxTransport? parent)
+        Guid? parentId,
+        int depth)
         : base(
             span,
-            parent)
+            parentId,
+            depth)
     {
         this.Name = name;
     }

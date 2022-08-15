@@ -169,9 +169,17 @@
       "sylvite.diagnostics": {
         "type": "Project"
       },
+      "sylvite.roslynhelper": {
+        "type": "Project",
+        "dependencies": {
+          "Microsoft.CodeAnalysis.CSharp": "[4.2.0, )",
+          "Sylvite.Diagnostics": "[1.0.0, )"
+        }
+      },
       "sylvite.syntaxtranslator": {
         "type": "Project",
         "dependencies": {
+          "Sylvite.RoslynHelper": "[1.0.0, )",
           "Sylvite.Transport": "[1.0.0, )"
         }
       },

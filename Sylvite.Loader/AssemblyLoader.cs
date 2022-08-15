@@ -49,6 +49,7 @@ public class AssemblyLoader
             .GroupBy(static x => x.Name)
             .Select(static x => (Name: x.Key, Path: x.OrderBy(static x => x.Index).First().Path))
             .Where(static x => {
+#pragma warning disable CA1031
                 try
                 {
                     _ = AssemblyName.GetAssemblyName(x.Path);
@@ -58,6 +59,7 @@ public class AssemblyLoader
                 {
                     return false;
                 }
+#pragma warning restore CA1031
             })
             .ToDictionary(
                 x => x.Name,

@@ -13,7 +13,7 @@ internal static class Program
     [STAThread]
     private static void Main()
     {
-        var obj = CSharpSyntaxTree.ParseText("class Foo{}");
+        var obj = CSharpSyntaxTree.ParseText("[A][B,C]class Foo: object {}");
 
         var host = new VisualizerDevelopmentHost(
             obj,

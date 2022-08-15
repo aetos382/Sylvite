@@ -11,11 +11,13 @@ public abstract class BaseNamespaceDeclarationTransport :
     protected BaseNamespaceDeclarationTransport(
         string name,
         TextSpan span,
-        SyntaxTransport? parent)
+        Guid? parentId,
+        int depth)
         : base(
             span,
-            parent)
+            parentId,
+            depth)
     {
-        Name = name;
+        this.Name = name;
     }
 }

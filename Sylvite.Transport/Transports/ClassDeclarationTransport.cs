@@ -11,11 +11,13 @@ public class ClassDeclarationTransport :
     public ClassDeclarationTransport(
         string name,
         TextSpan span,
-        SyntaxTransport? parent)
+        Guid? parentId,
+        int depth)
         : base(
             name,
             span,
-            parent)
+            parentId,
+            depth)
     {
     }
 

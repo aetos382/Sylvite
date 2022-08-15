@@ -11,11 +11,13 @@ public class NamespaceDeclarationTransport :
     public NamespaceDeclarationTransport(
         string name,
         TextSpan span,
-        SyntaxTransport? parent)
+        Guid? parentId,
+        int depth)
         : base(
             name,
             span,
-            parent)
+            parentId,
+            depth)
     {
     }
 

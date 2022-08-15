@@ -17,10 +17,13 @@ public class CompilationUnitTransport :
     }
 
     public CompilationUnitTransport(
-        TextSpan span)
+        TextSpan span,
+        Guid? parentId,
+        int depth)
         : base(
             span,
-            null)
+            parentId,
+            depth)
     {
     }
 }

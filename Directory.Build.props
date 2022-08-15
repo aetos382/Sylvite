@@ -36,6 +36,10 @@
     </AssemblyAttribute>
   </ItemGroup>
 
+  <PropertyGroup Condition="'$(IsTestProject)' == 'true'">
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
   <ItemGroup Condition="'$(ImportPolyfills)' == 'true'">
     <Compile Include="$(MSBuildThisFileDirectory)Polyfills/**/*.cs" Visible="false"/>
   </ItemGroup>

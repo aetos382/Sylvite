@@ -1,10 +1,8 @@
-using System;
+using System.Linq;
 
 using Microsoft.CodeAnalysis.CSharp;
 
 using Xunit;
-
-using Sylvite.Transport;
 
 namespace Sylvite.SyntaxTranslator.Tests;
 
@@ -16,8 +14,10 @@ public class UnitTest1
         const string code = @"
 namespace Foo
 {
+    [A]
     class Bar
     {
+        int Z { get { return 1; } }
     }
 
     class Baz
@@ -32,29 +32,7 @@ namespace Foo
 }";
         var tree = CSharpSyntaxTree.ParseText(code);
 
-        var converter = new SyntaxConverter();
-
-        var observer = new Observer();
-        using var subscription = converter.Subscribe(observer);
-
-        var transport = converter.Visit(tree.GetCompilationUnitRoot());
-    }
-
-    private class Observer :
-        IObserver<SyntaxTransport>
-    {
-        public void OnCompleted()
-        {
-        }
-
-        public void OnError(
-            Exception error)
-        {
-        }
-
-        public void OnNext(
-            SyntaxTransport value)
-        {
-        }
+        var converter = new SyntaxConverter(tree.GetCompilationUnitRoot());
+        var array = converter.ToArray();
     }
 }

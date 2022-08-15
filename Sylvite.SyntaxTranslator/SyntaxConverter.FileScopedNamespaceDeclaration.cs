@@ -2,26 +2,33 @@
 
 using System.Linq;
 
+using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 
+using Sylvite.RoslynHelper;
 using Sylvite.Transport;
 
 namespace Sylvite.SyntaxTranslator;
 
 public partial class SyntaxConverter
 {
-    public override SyntaxTransport? VisitFileScopedNamespaceDeclaration(
-        FileScopedNamespaceDeclarationSyntax node)
+    private partial class Visitor
     {
-        return this.ProcessNode(
-            node,
-            static (node, parent) =>
-                new FileScopedNamespaceDeclarationTransport(
-                    node.Name.ToString(),
-                    node.GetSpan(),
-                    parent),
-            static (self, node, transport) =>
-                node.ChildNodes().Select(self.Visit));
+        public override VisitResult<SyntaxTransport>? VisitFileScopedNamespaceDeclaration(
+            FileScopedNamespaceDeclarationSyntax node)
+        {
+            var transport = new FileScopedNamespaceDeclarationTransport(
+                node.Name.ToString(),
+                node.GetSpan(),
+                this.Parent!.Id,
+                this.Depth);
+
+            var childNodes = node
+                .ChildNodes()
+                .Cast<CSharpSyntaxNode>();
+
+            return new VisitResult<SyntaxTransport>(transport, childNodes);
+        }
     }
 }
 
