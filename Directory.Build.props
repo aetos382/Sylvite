@@ -1,4 +1,6 @@
 <Project>
+  <Sdk Name="DotNet.ReproducibleBuilds.Isolated" Version="1.1.1" />
+
   <PropertyGroup>
     <DefaultItemExcludes>
       $(DefaultItemExcludes);
@@ -27,8 +29,6 @@
     <SupportedRoslynVersion Include="4.1.0"/>
     <SupportedRoslynVersion Include="4.2.0"/>
   </ItemGroup>
-
-  <Sdk Name="DotNet.ReproducibleBuilds.Isolated" Version="1.1.1" />
 
   <ItemGroup>
     <AssemblyAttribute Include="System.CLSCompliantAttribute" Condition="'$(CLSCompliant)' != ''">

@@ -2,11 +2,6 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <ImplicitUsings>disable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-    <LangVersion>10</LangVersion>
-    <EnableNETAnalyzers>True</EnableNETAnalyzers>
-    <AnalysisLevel>6.0-all</AnalysisLevel>
     <CLSCompliant>false</CLSCompliant>
     <ImportPolyfills>true</ImportPolyfills>
   </PropertyGroup>

@@ -16,44 +16,63 @@ public class AssemblyLoader
     {
     }
 
+    private static readonly IReadOnlyList<string> DefaultExtensions = new[] { ".dll" };
+
     public AssemblyLoader(
-        string[] provingPaths,
-        string[]? extensions = null)
+        IReadOnlyList<string> provingPaths,
+        IReadOnlyList<string>? extensions = null)
     {
-        extensions ??= new[] { "*.dll" };
+        extensions = (extensions ?? DefaultExtensions)
+            .Select(x =>
+            {
+                var e = x.TrimStart('*');
+
+                if (e.Length == 0)
+                {
+                    e = "*";
+                }
+
+                if (e[0] != '.')
+                {
+                    e = $".{e}";
+                }
+
+                return e;
+            })
+            .ToArray();
 
         var basePath = Path.GetDirectoryName(Assembly.GetCallingAssembly().Location);
 
         var provingPathList = provingPaths
-            .Select((x, i) => {
-                var path = Path.Combine(basePath, x);
-                return (Index: i + 1, Path: path);
-            })
-            .Where(static x => Directory.Exists(x.Path))
+            .Select(x => Path.Combine(basePath, x))
+            .Where(static x => Directory.Exists(x))
+            .Select(static (x, i) => (Index: i, Path: x))
             .ToList();
 
         provingPathList.Insert(0, (Index: 0, Path: basePath));
 
         var candidateFiles = provingPathList
-            .SelectMany(x => extensions.Select(e => (x.Index, x.Path, Extension: e)))
-            .SelectMany(static x => {
-                var files = Directory.EnumerateFiles(x.Path, x.Extension, SearchOption.AllDirectories);
+            .SelectMany(x =>
+                extensions.Select(e => (x.Index, x.Path, Extension: e)))
+            .SelectMany(static x =>
+            {
+                var files = Directory.EnumerateFiles(x.Path, $"*.{x.Extension}", SearchOption.AllDirectories);
                 return files
-                    .Where(x => Path.GetExtension(x).Equals(".dll", StringComparison.OrdinalIgnoreCase))
-                    .Select(f => (x.Index, Path: f));
+                    .Where(f => Path.GetExtension(f).Equals(x.Extension, StringComparison.OrdinalIgnoreCase))
+                    .Select(f => (
+                        x.Index,
+                        Path: f,
+                        Name: Path.GetFileNameWithoutExtension(x.Path)));
             })
-            .Select(static x => (
-                x.Index,
-                x.Path,
-                Name: Path.GetFileNameWithoutExtension(x.Path)))
             .GroupBy(static x => x.Name)
             .Select(static x => (Name: x.Key, Path: x.OrderBy(static x => x.Index).First().Path))
-            .Where(static x => {
+            .Where(static x =>
+            {
 #pragma warning disable CA1031
                 try
                 {
-                    _ = AssemblyName.GetAssemblyName(x.Path);
-                    return true;
+                    var name = AssemblyName.GetAssemblyName(x.Path);
+                    return string.Equals(name.Name, x.Name, StringComparison.OrdinalIgnoreCase);
                 }
                 catch
                 {
@@ -71,8 +90,8 @@ public class AssemblyLoader
 
     public void Hook()
     {
-        AppDomain.CurrentDomain.AssemblyResolve += (_, e) => {
-
+        AppDomain.CurrentDomain.AssemblyResolve += (_, e) =>
+        {
             var loadedAssembly = AppDomain.CurrentDomain
                 .GetAssemblies()
                 .FirstOrDefault(a => a.FullName == e.Name);

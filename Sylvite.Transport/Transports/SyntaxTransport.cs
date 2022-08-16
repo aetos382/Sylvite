@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 using Sylvite.Diagnostics;
 
@@ -26,7 +27,43 @@ public abstract class SyntaxTransport
 
     public Guid? ParentId { get; }
 
+    public SyntaxTransport? Parent { get; private set; }
+
     public int Depth { get; }
+
+    public void SetParent(
+        SyntaxTransport parent,
+        bool setChild)
+    {
+        this.Parent = parent;
+
+        if (setChild)
+        {
+            parent.AddChild(this, false);
+        }
+    }
+
+    public void AddChild(
+        SyntaxTransport child,
+        bool setParent)
+    {
+        this._childNodes.Add(child);
+
+        if (setParent)
+        {
+            child.SetParent(this, false);
+        }
+    }
+
+    private readonly List<SyntaxTransport> _childNodes = new();
+
+    public IReadOnlyList<SyntaxTransport> ChildNodes
+    {
+        get
+        {
+            return this._childNodes.AsReadOnly();
+        }
+    }
 
     public abstract T Accept<T>(
         ITransportVisitor<T> visitor);

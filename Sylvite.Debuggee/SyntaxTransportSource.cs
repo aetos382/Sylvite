@@ -40,9 +40,18 @@ public class SyntaxTransportSource :
         };
 
         var nodeEnumerator = new SyntaxConverter(node);
-        var transports = nodeEnumerator.Take(command.Count).ToArray();
-        var response = new GetObjectResponse(transports, transports.Length < command.Count);
+        var transports = nodeEnumerator.Chunk(command.ChunkSize);
 
-        context.SendObject(response);
+        foreach (var chunk in transports)
+        {
+            var response = new GetObjectResponse(chunk, false);
+            context.SendObject(response);
+        }
+
+        var finalResponse = new GetObjectResponse(
+            Array.Empty<SyntaxTransport>(),
+            true);
+
+        context.SendObject(finalResponse);
     }
 }

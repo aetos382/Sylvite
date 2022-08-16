@@ -10,14 +10,14 @@ public class GetObjectRequest :
     ITransportRequest<GetObjectResponse>
 {
     public GetObjectRequest(
-        int count)
+        int chunkSize)
     {
-        Guard.GreaterThanOrEqualTo(count, -1);
+        Guard.GreaterThanOrEqualTo(chunkSize, -1);
 
-        this.Count = count;
+        this.ChunkSize = chunkSize;
     }
 
-    public int Count { get; }
+    public int ChunkSize { get; }
 
     public void Handle(
         ITransportRequestHandler handler,
