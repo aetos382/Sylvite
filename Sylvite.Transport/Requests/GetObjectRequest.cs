@@ -10,11 +10,11 @@ public class GetObjectRequest :
 {
     public ITransportResponse Handle(
         ITransportRequestHandler handler,
-        RequestContext context)
+        object objectToVisualize)
     {
         Guard.IsNotNull(handler);
-        Guard.IsNotNull(context);
+        Guard.IsNotNull(objectToVisualize);
 
-        return handler.HandleGetObject(this, context);
+        return handler.HandleGetObject(this, objectToVisualize);
     }
 }

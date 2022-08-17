@@ -18,18 +18,17 @@ public class SyntaxTransportSource :
         Stream outgoingData)
     {
         var command = GetDeserializableObject(incomingData).ToObject<ITransportRequest>();
-        var context = new RequestContext(target, incomingData, outgoingData);
 
-        var response = command.Handle(this, context);
+        var response = command.Handle(this, target);
         Serialize(outgoingData, response);
     }
 
     public GetObjectResponse HandleGetObject(
         GetObjectRequest command,
-        RequestContext context)
+        object objectToVisualize)
     {
         Guard.IsNotNull(command);
-        Guard.IsNotNull(context);
+        Guard.IsNotNull(objectToVisualize);
 
         return new GetObjectResponse();
     }
