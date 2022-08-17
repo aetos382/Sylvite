@@ -1,31 +1,20 @@
 using System;
 
-using Sylvite.Diagnostics;
+using CommunityToolkit.Diagnostics;
 
 namespace Sylvite.Transport;
 
 [Serializable]
 public class GetObjectRequest :
-    ITransportRequest,
-    ITransportRequest<GetObjectResponse>
+    ITransportRequest
 {
-    public GetObjectRequest(
-        int chunkSize)
-    {
-        Guard.GreaterThanOrEqualTo(chunkSize, -1);
-
-        this.ChunkSize = chunkSize;
-    }
-
-    public int ChunkSize { get; }
-
-    public void Handle(
+    public ITransportResponse Handle(
         ITransportRequestHandler handler,
         RequestContext context)
     {
-        Guard.NotNull(handler);
-        Guard.NotNull(context);
+        Guard.IsNotNull(handler);
+        Guard.IsNotNull(context);
 
-        handler.OnGetObject(this, context);
+        return handler.HandleGetObject(this, context);
     }
 }

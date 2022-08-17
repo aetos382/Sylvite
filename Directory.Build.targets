@@ -1,5 +1,9 @@
 <Project>
 
+  <ItemGroup>
+    <PackageReference Update="Microsoft.VisualStudio.DebuggerVisualizers" PrivateAssets="all"/>
+  </ItemGroup>
+
   <ItemGroup Condition="'$(RoslynVersion)' != ''">
     <PackageReference Include="Microsoft.CodeAnalysis.CSharp" PrivateAssets="all" VersionOverride="$(RoslynVersion)"/>
   </ItemGroup>

@@ -7,10 +7,6 @@
     <PackageReference Include="DotNet.ReproducibleBuilds" PrivateAssets="all" />
   </ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Update="Microsoft.VisualStudio.DebuggerVisualizers" PrivateAssets="all" />
-  </ItemGroup>
-
   <ItemGroup Condition="'$(TargetFrameworkIdentifier)' == '.NETFramework'">
     <!-- workaround for https://github.com/dotnet/reproducible-builds/issues/19 -->
     <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" PrivateAssets="all" />

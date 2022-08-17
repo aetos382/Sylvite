@@ -167,13 +167,10 @@
       "sylvite.debuggee": {
         "type": "Project",
         "dependencies": {
-          "Microsoft.VisualStudio.DebuggerVisualizers": "[17.0.2042701, )",
+          "CommunityToolkit.Diagnostics": "[8.0.0, )",
           "Sylvite.SyntaxTranslator": "[1.0.0, )",
           "Sylvite.Transport": "[1.0.0, )"
         }
-      },
-      "sylvite.diagnostics": {
-        "type": "Project"
       },
       "sylvite.loader": {
         "type": "Project"
@@ -181,8 +178,7 @@
       "sylvite.roslynhelper": {
         "type": "Project",
         "dependencies": {
-          "Microsoft.CodeAnalysis.CSharp": "[4.2.0, )",
-          "Sylvite.Diagnostics": "[1.0.0, )"
+          "Microsoft.CodeAnalysis.CSharp": "[4.2.0, )"
         }
       },
       "sylvite.syntaxtranslator": {
@@ -195,7 +191,7 @@
       "sylvite.transport": {
         "type": "Project",
         "dependencies": {
-          "Sylvite.Diagnostics": "[1.0.0, )"
+          "CommunityToolkit.Diagnostics": "[8.0.0, )"
         }
       },
       "sylvite.visualizer": {
@@ -204,7 +200,6 @@
           "CommunityToolkit.Diagnostics": "[8.0.0, )",
           "CommunityToolkit.Mvvm": "[8.0.0, )",
           "Microsoft.CodeAnalysis.CSharp": "[4.2.0, )",
-          "Microsoft.VisualStudio.DebuggerVisualizers": "[17.0.2042701, )",
           "Microsoft.Web.WebView2": "[1.0.1293.44, )",
           "Microsoft.Xaml.Behaviors.Wpf": "[1.1.39, )",
           "Sylvite.Loader": "[1.0.0, )",
@@ -241,12 +236,6 @@
         "dependencies": {
           "Microsoft.CodeAnalysis.Common": "[4.2.0]"
         }
-      },
-      "Microsoft.VisualStudio.DebuggerVisualizers": {
-        "type": "CentralTransitive",
-        "requested": "[17.0.2042701, )",
-        "resolved": "17.0.2042701",
-        "contentHash": "VwITqIYmLMZsHtKe1d0b2yYDdLIViU7yl2zQ+tqGLqbVw0dgU3XUhkQOLETn9kYbyKludohvkTOrcZzC+tnCiQ=="
       },
       "Microsoft.Web.WebView2": {
         "type": "CentralTransitive",

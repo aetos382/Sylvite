@@ -212,23 +212,19 @@
           "System.Runtime.CompilerServices.Unsafe": "4.5.3"
         }
       },
-      "sylvite.diagnostics": {
-        "type": "Project"
-      },
       "sylvite.loader": {
         "type": "Project"
       },
       "sylvite.roslynhelper": {
         "type": "Project",
         "dependencies": {
-          "Microsoft.CodeAnalysis.CSharp": "[4.2.0, )",
-          "Sylvite.Diagnostics": "[1.0.0, )"
+          "Microsoft.CodeAnalysis.CSharp": "[4.2.0, )"
         }
       },
       "sylvite.transport": {
         "type": "Project",
         "dependencies": {
-          "Sylvite.Diagnostics": "[1.0.0, )"
+          "CommunityToolkit.Diagnostics": "[8.0.0, )"
         }
       }
     }

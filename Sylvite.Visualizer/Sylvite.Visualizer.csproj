@@ -3,6 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net48</TargetFramework>
     <UseWPF>true</UseWPF>
+    <UseWindowsForms>true</UseWindowsForms>
     <CLSCompliant>false</CLSCompliant>
     <ImportPolyfills>true</ImportPolyfills>
   </PropertyGroup>

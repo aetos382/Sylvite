@@ -3,6 +3,8 @@ using System.Collections.Generic;
 
 using Microsoft.CodeAnalysis.CSharp;
 
+using CommunityToolkit.Diagnostics;
+
 using Sylvite.Transport;
 
 namespace Sylvite.Visualizer.Rebuilder;
@@ -12,6 +14,9 @@ internal class SyntaxRebuilder
     public CSharpSyntaxNode BuildNode(
         IReadOnlyList<SyntaxTransport> transports)
     {
+        Guard.IsNotNull(transports);
+        Guard.HasSizeGreaterThan(transports, 0);
+
         var dic = new Dictionary<Guid, SyntaxTransport>();
 
         SyntaxTransport? rootTransport = null;

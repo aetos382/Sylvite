@@ -22,5 +22,13 @@ internal static class Program
             false);
 
         host.ShowVisualizer();
+
+        var host2 = new VisualizerDevelopmentHost(
+            obj,
+            typeof(SyntaxVisualizer),
+            typeof(SyntaxTransportSource),
+            false);
+
+        host2.ShowVisualizer();
     }
 }

@@ -30,7 +30,7 @@ dotnet_diagnostic.IDE0161.severity = warning
 dotnet_diagnostic.IDE1006.severity = warning
 
 dotnet_diagnostic.CA1062.severity = warning
-dotnet_code_quality.CA1062.null_check_validation_methods = M:Sylvite.Diagnostics.Guard.NotNull``1(``0,System.String)
+dotnet_code_quality.CA1062.null_check_validation_methods = M:CommunityToolkit.Diagnostics.Guard.IsNotNull``1(``0,System.String)
 
 # Code Style Settings
 dotnet_style_qualification_for_field = false:silent
@@ -106,7 +106,7 @@ dotnet_sort_system_directives_first = true:suggestion
 dotnet_separate_import_directive_groups = true:suggestion
 dotnet_style_namespace_match_folder = false
 
-csharp_new_line_before_open_brace = types, methods, properties, accessors, control_blocks, lambdas
+csharp_new_line_before_open_brace = all
 csharp_new_line_before_else = true:warning
 csharp_new_line_before_catch = true:warning
 csharp_new_line_before_finally = true:warning

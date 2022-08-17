@@ -1,6 +1,7 @@
 using Microsoft.VisualStudio.DebuggerVisualizers;
 
-using Sylvite.Diagnostics;
+using CommunityToolkit.Diagnostics;
+
 using Sylvite.Transport;
 
 namespace Sylvite.Visualizer;
@@ -10,16 +11,11 @@ internal static class VisualizerObjectProviderExtensions
     public static TResponse SendRequest<TRequest, TResponse>(
         this IVisualizerObjectProvider2 provider,
         TRequest request)
-        where TRequest :
-            class,
-            ITransportRequest,
-            ITransportRequest<TResponse>
-        where TResponse :
-            class,
-            ITransportResponse
+        where TRequest : ITransportRequest
+        where TResponse : ITransportResponse
     {
-        Guard.NotNull(provider);
-        Guard.NotNull(request);
+        Guard.IsNotNull(provider);
+        Guard.IsNotNull(request);
 
         var obj = provider.TransferDeserializableObject(request);
         var response = obj.ToObject<TResponse>();

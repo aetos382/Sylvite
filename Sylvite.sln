@@ -13,8 +13,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sylvite.TestConsole", "Sylv
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sylvite.RoslynHelper", "Sylvite.RoslynHelper\Sylvite.RoslynHelper.csproj", "{318FB65D-0394-465F-8472-D839943C08AD}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sylvite.Diagnostics", "Sylvite.Diagnostics\Sylvite.Diagnostics.csproj", "{796107A4-913D-44B1-AFF3-BB8544DCB0ED}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sylvite.Loader", "Sylvite.Loader\Sylvite.Loader.csproj", "{3E3F83BD-66BD-45CB-83CB-ABC13EC35F0C}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sylvite.SyntaxTranslator", "Sylvite.SyntaxTranslator\Sylvite.SyntaxTranslator.csproj", "{F3146F2D-B4D9-4E8B-B5D4-2A1C12AD6D9D}"
@@ -47,10 +45,6 @@ Global
 		{318FB65D-0394-465F-8472-D839943C08AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{318FB65D-0394-465F-8472-D839943C08AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{318FB65D-0394-465F-8472-D839943C08AD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{796107A4-913D-44B1-AFF3-BB8544DCB0ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{796107A4-913D-44B1-AFF3-BB8544DCB0ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{796107A4-913D-44B1-AFF3-BB8544DCB0ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{796107A4-913D-44B1-AFF3-BB8544DCB0ED}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3E3F83BD-66BD-45CB-83CB-ABC13EC35F0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3E3F83BD-66BD-45CB-83CB-ABC13EC35F0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3E3F83BD-66BD-45CB-83CB-ABC13EC35F0C}.Release|Any CPU.ActiveCfg = Release|Any CPU

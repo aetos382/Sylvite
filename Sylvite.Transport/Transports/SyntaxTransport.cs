@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-using Sylvite.Diagnostics;
+using CommunityToolkit.Diagnostics;
 
 namespace Sylvite.Transport;
 
@@ -13,7 +13,7 @@ public abstract class SyntaxTransport
         Guid? parentId,
         int depth)
     {
-        Guard.GreaterThanOrEqualTo(depth, 0);
+        Guard.IsGreaterThanOrEqualTo(depth, 0);
 
         this.Id = Guid.NewGuid();
         this.Span = span;
@@ -35,6 +35,8 @@ public abstract class SyntaxTransport
         SyntaxTransport parent,
         bool setChild)
     {
+        Guard.IsNotNull(parent);
+
         this.Parent = parent;
 
         if (setChild)
@@ -47,6 +49,8 @@ public abstract class SyntaxTransport
         SyntaxTransport child,
         bool setParent)
     {
+        Guard.IsNotNull(child);
+
         this._childNodes.Add(child);
 
         if (setParent)

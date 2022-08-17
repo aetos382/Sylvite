@@ -2,6 +2,9 @@ using System.Collections.Generic;
 
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
+
+using CommunityToolkit.Diagnostics;
+
 using Sylvite.RoslynHelper;
 using Sylvite.Transport;
 
@@ -13,6 +16,8 @@ internal class SyntaxTransportVisitor :
     public CSharpSyntaxNode VisitClassDeclaration(
         ClassDeclarationTransport transport)
     {
+        Guard.IsNotNull(transport);
+
         var node = SyntaxFactory.ClassDeclaration(transport.Name);
 
         var members = new List<MemberDeclarationSyntax>();

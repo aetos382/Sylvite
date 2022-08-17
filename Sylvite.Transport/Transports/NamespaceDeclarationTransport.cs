@@ -1,6 +1,6 @@
 using System;
 
-using Sylvite.Diagnostics;
+using CommunityToolkit.Diagnostics;
 
 namespace Sylvite.Transport;
 
@@ -24,7 +24,7 @@ public class NamespaceDeclarationTransport :
     public override T Accept<T>(
         ITransportVisitor<T> visitor)
     {
-        Guard.NotNull(visitor);
+        Guard.IsNotNull(visitor);
 
         return visitor.VisitNamespaceDeclaration(this);
     }

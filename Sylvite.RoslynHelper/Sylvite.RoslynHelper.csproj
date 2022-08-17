@@ -10,8 +10,4 @@
     <PackageReference Include="Microsoft.CodeAnalysis.CSharp" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Sylvite.Diagnostics\Sylvite.Diagnostics.csproj" />
-  </ItemGroup>
-
 </Project>
